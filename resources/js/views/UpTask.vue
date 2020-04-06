@@ -59,7 +59,7 @@
                 if (!this.$v.$invalid) {
                     axios({
                         method: 'put',
-                        url: 'http://127.0.0.1:8000/api/tasks/' + this.task.id,
+                        url: '/api/tasks/' + this.task.id,
                         data: {
                             content: this.content
                         }
@@ -72,7 +72,7 @@
             },
         },
         mounted() {
-            axios.get('http://127.0.0.1:8000/api/tasks/' + this.$route.params.id)
+            axios.get('/api/tasks/' + this.$route.params.id)
                 .then(response => {
                     this.task = response.data
                     this.content = response.data.content

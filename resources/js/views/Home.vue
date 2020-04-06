@@ -49,7 +49,7 @@
                 if(!this.$v.$invalid){
                     axios({
                         method: 'post',
-                        url: 'http://127.0.0.1:8000/api/tasks',
+                        url: '/api/tasks',
                         data: {
                             content : this.task
                         }
@@ -58,6 +58,7 @@
                         this.task = null
                         this.notifications(1,"success !")
                     })
+                    process.env.MIX_URL
 
                 }else{
                     this.notifications(0,"Error while creating !")
@@ -67,7 +68,7 @@
                 try{
                     axios({
                         method: 'delete',
-                        url: 'http://127.0.0.1:8000/api/tasks/'+value.id,
+                        url: '/api/tasks/'+value.id,
                     }).then(response => {
                         this.tasksList.forEach( e =>{
                             if (e === value){
@@ -83,7 +84,7 @@
             },
         },
         mounted() {
-            axios.get('http://127.0.0.1:8000/api/tasks')
+            axios.get('/api/tasks')
                 .then(response=> {
                    this.tasksList = response.data
                 })

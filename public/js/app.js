@@ -1945,7 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Task_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Task.vue */ "./resources/js/components/Task.vue");
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var _components_Task_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Task.vue */ "./resources/js/components/Task.vue");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
 //
@@ -2006,7 +2006,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.$v.$invalid) {
         axios({
           method: 'post',
-          url: 'http://127.0.0.1:8000/api/tasks',
+          url: '/api/tasks',
           data: {
             content: this.task
           }
@@ -2017,6 +2017,7 @@ __webpack_require__.r(__webpack_exports__);
 
           _this2.notifications(1, "success !");
         });
+        process.env.MIX_URL;
       } else {
         this.notifications(0, "Error while creating !");
       }
@@ -2027,7 +2028,7 @@ __webpack_require__.r(__webpack_exports__);
       try {
         axios({
           method: 'delete',
-          url: 'http://127.0.0.1:8000/api/tasks/' + value.id
+          url: '/api/tasks/' + value.id
         }).then(function (response) {
           _this3.tasksList.forEach(function (e) {
             if (e === value) {
@@ -2045,11 +2046,12 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this4 = this;
 
-    axios.get('http://127.0.0.1:8000/api/tasks').then(function (response) {
+    axios.get('/api/tasks').then(function (response) {
       _this4.tasksList = response.data;
     });
   }
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -2129,7 +2131,7 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.$v.$invalid) {
         axios({
           method: 'put',
-          url: 'http://127.0.0.1:8000/api/tasks/' + this.task.id,
+          url: '/api/tasks/' + this.task.id,
           data: {
             content: this.content
           }
@@ -2144,7 +2146,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this3 = this;
 
-    axios.get('http://127.0.0.1:8000/api/tasks/' + this.$route.params.id).then(function (response) {
+    axios.get('/api/tasks/' + this.$route.params.id).then(function (response) {
       _this3.task = response.data;
       _this3.content = response.data.content;
     });
