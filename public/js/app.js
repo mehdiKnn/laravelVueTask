@@ -37587,7 +37587,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "w-100" }, [
     _vm.state.status === 0
       ? _c(
           "div",

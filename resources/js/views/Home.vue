@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="w-100">
         <div v-if="state.status === 0" class="alert alert-danger" role="alert">
             {{state.content}}
         </div>
