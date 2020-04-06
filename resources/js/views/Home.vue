@@ -58,7 +58,6 @@
                         this.task = null
                         this.notifications(1,"success !")
                     })
-                    process.env.MIX_URL
 
                 }else{
                     this.notifications(0,"Error while creating !")
